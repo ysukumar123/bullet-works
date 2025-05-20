@@ -7,3 +7,6 @@ move_y = 0;
 //****Raw Movement****//
 
 
+
+facing_left = false; // default facing right
+
