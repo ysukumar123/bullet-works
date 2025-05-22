@@ -10,9 +10,9 @@ move_y = 0;
 
 facing_left = false; // default facing right
 
-jump_speed = 15;
 slowmo_jump = false;
 slowmo_timer = 0;
-slowmo_duration = 30;
-slowmo_factor = 0.3;
-leap_speed = 12;
+slowmo_duration = 60;
+slowmo_power = 20;
+leap_target_x = 0;
+leap_target_y = 0;
