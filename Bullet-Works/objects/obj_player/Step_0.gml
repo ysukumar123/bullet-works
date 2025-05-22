@@ -1,11 +1,3 @@
-// Declare these variables in the Create event of obj_player:
-/// slowmo_jump = false;
-/// slowmo_timer = 0;
-/// slowmo_duration = 60; // frames duration of leap
-/// slowmo_power = 20;    // jump strength
-/// leap_target_x = 0;
-/// leap_target_y = 0;
-
 // Step Event:
 
 // Movement X - only when not leaping
@@ -41,10 +33,8 @@ if (slowmo_jump) {
     move_x = slowmo_power * cos(rad) * 0.5;  // Adjust 0.5 for horizontal speed scale
     move_y = slowmo_power * sin(rad) * 0.5 * -1; // Negative for upward
 
-    // Rotate player smoothly during leap
-    var rotation_speed = 360 / slowmo_duration;
-    image_angle += rotation_speed;
-    if (image_angle >= 360) image_angle -= 360;
+    // Rotate player to face the direction of the mouse (this is where the change happens)
+    image_angle = point_direction(x, y, mouse_x, mouse_y);
 
     // End leap after duration
     if (slowmo_timer >= slowmo_duration) {
