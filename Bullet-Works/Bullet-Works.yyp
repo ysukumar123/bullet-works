@@ -8,6 +8,7 @@
     {"id":{"name":"obj_idle_arm","path":"objects/obj_idle_arm/obj_idle_arm.yy",},"order":2,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
+    {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},"order":6,},
     {"id":{"name":"obj_shooting_arm","path":"objects/obj_shooting_arm/obj_shooting_arm.yy",},"order":3,},
     {"id":{"name":"spr_shooting_arm","path":"sprites/spr_shooting_arm/spr_shooting_arm.yy",},"order":3,},
     {"id":{"name":"spr_idle_arm","path":"sprites/spr_idle_arm/spr_idle_arm.yy",},"order":2,},
