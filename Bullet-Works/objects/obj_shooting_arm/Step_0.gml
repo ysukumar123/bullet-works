@@ -27,6 +27,18 @@ if (keyboard_check_pressed(ord("X"))) {
     instance_destroy();
 }
 
+// Step Event of obj_shooting_arm
+
+if (mouse_check_button_pressed(mb_left)) {
+    var bullet_offset = 16; // distance from center of the arm
+    var spawn_x = x + lengthdir_x(bullet_offset, image_angle);
+    var spawn_y = y + lengthdir_y(bullet_offset, image_angle);
+
+    var bullet = instance_create_layer(spawn_x, spawn_y, layer, obj_bullet);
+    bullet.direction = image_angle;
+    bullet.speed = 10;
+}
+
 
 
 
