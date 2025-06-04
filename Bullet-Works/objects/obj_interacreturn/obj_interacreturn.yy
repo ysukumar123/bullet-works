@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_roomtutorialinterac",
+  "name": "obj_interacreturn",
   "spriteId": {
-    "name": "spr_interac3",
-    "path": "sprites/spr_interac3/spr_interac3.yy",
+    "name": "spr_return1",
+    "path": "sprites/spr_return1/spr_return1.yy",
   },
   "solid": false,
   "visible": true,

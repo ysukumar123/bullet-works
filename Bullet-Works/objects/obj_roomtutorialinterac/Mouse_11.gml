@@ -1,1 +1,1 @@
-sprite_index = spr_interac;
+sprite_index = spr_interac3;
