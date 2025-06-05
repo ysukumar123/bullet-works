@@ -4,7 +4,7 @@ var py = obj_player.y;
 var flip = obj_player.facing_left;
 
 var offset_x = 20;
-var offset_y = 0;
+var offset_y = 40;
 
 if (!flip) {
     x = px - offset_x;
