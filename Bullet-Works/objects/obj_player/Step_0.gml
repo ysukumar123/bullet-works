@@ -6,11 +6,15 @@ if (!slowmo_jump) {
     move_x *= move_speed;
 }
 
-if (place_meeting(x, y+2, obj_ground)) {
+// Check if standing on ground or elevator
+var on_ground = place_meeting(x, y+2, obj_ground);
+var on_elevator = place_meeting(x, y+2, obj_elevator);
+
+if (on_ground || on_elevator) {
     move_y = 0;
 
+    // Start slow-mo leap
     if (keyboard_check_pressed(vk_space) && !slowmo_jump) {
-        // Start slow-mo leap
         slowmo_jump = true;
         slowmo_timer = 0;
 
@@ -20,8 +24,11 @@ if (place_meeting(x, y+2, obj_ground)) {
 
         image_angle = 0; // reset rotation
     }
-} else if (move_y < 10) move_y += 1;
+} else if (move_y < 10) {
+    move_y += 1;
+}
 
+// Handle slow-mo jumping
 if (slowmo_jump) {
     slowmo_timer++;
 
@@ -30,16 +37,16 @@ if (slowmo_jump) {
     var rad = degtorad(dir);
 
     // Apply jump velocity (slow and smooth)
-    move_x = slowmo_power * cos(rad) * 0.5;  // Adjust 0.5 for horizontal speed scale
-    move_y = slowmo_power * sin(rad) * 0.5 * -1; // Negative for upward
+    move_x = slowmo_power * cos(rad) * 0.5;  
+    move_y = slowmo_power * sin(rad) * 0.5 * -1; 
 
-    // Rotate player to face the direction of the mouse (this is where the change happens)
+    // Rotate player to face the direction of the mouse
     image_angle = point_direction(x, y, mouse_x, mouse_y);
 
     // End leap after duration
     if (slowmo_timer >= slowmo_duration) {
         slowmo_jump = false;
-        image_angle = 0; // Reset rotation
+        image_angle = 0;
     }
 } else {
     // Normal flip and rotation reset
@@ -51,13 +58,22 @@ if (slowmo_jump) {
     }
 }
 
-// Move and collide (keep your collision logic intact)
+// Move and collide
 move_and_collide(move_x, move_y, obj_ground);
+move_and_collide(move_x, move_y, obj_elevator);
 
-// Your existing extra collision fix
+// Additional collision fix for ground
 if (!place_meeting(x+move_x, y+2, obj_ground) && place_meeting(x+move_x, y+10, obj_ground)) {
     move_y = abs(move_x);
     move_x = 0;
 }
 
+// Ensure movement with elevator
+if (on_elevator) {
+    var elevator = instance_place(x, y+2, obj_elevator);
+    if (elevator) move_y = elevator.vspeed;
+}
+
+// Final movement resolution
 move_and_collide(move_x, move_y, obj_ground, 4, 0, 0, move_speed, -1);
+move_and_collide(move_x, move_y, obj_elevator, 4, 0, 0, move_speed, -1);
