@@ -10,6 +10,6 @@ if (!invincible) {
 }
 
 
-
+audio_play_sound(snd_kill, 1, false);
 
 

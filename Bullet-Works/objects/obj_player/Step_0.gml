@@ -15,6 +15,9 @@ if (on_ground) {
         slowmo_jump = true;
         slowmo_timer = 0;
 
+        // Play whoosh sound on jump start
+        audio_play_sound(snd_whoosh, 1, false);
+
         var dx = mouse_x - x;
         var dy = mouse_y - y;
         var dist = point_distance(x, y, mouse_x, mouse_y);

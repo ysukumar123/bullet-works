@@ -19,6 +19,7 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_526AA2FF","properties":[],"isDnd":false,"objectId":{"name":"obj_interac","path":"objects/obj_interac/obj_interac.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.9036575,"scaleY":0.44126981,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":512.0,"y":384.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_40913213","properties":[],"isDnd":false,"objectId":{"name":"obj_roomtutorialinterac","path":"objects/obj_roomtutorialinterac/obj_roomtutorialinterac.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":0.712,"scaleY":0.46666664,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":288.0,"y":512.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3D24DC5","properties":[],"isDnd":false,"objectId":{"name":"obj_musicmananger","path":"objects/obj_musicmananger/obj_musicmananger.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1024.0,"y":512.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_4AE5868","spriteId":{"name":"spr_menu","path":"sprites/spr_menu/spr_menu.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":0.9713542,"scaleY":0.8317901,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
@@ -33,6 +34,7 @@
   "instanceCreationOrder": [
     {"name":"inst_526AA2FF","path":"rooms/rm_menu/rm_menu.yy",},
     {"name":"inst_40913213","path":"rooms/rm_menu/rm_menu.yy",},
+    {"name":"inst_3D24DC5","path":"rooms/rm_menu/rm_menu.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
