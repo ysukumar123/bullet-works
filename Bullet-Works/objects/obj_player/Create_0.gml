@@ -13,3 +13,9 @@ slowmo_power = 12;    // Reduced from 20 for lower jump
 slowmo_gravity = 0.2; // Very low gravity during jump
 normal_gravity = 0.6; // Regular gravity
 jump_apex_time = 30;  // Time to reach jump peak
+
+invincible = false;
+invincibility_duration = 60; // Example: 60 steps = 1 second
+invincibility_timer = 0;
+ start_x = x;
+start_y = y;

@@ -96,3 +96,11 @@ if (place_meeting(x, y + 1, obj_elevator)) {
         y += elevator.vspeed; // This works with path movement now
     }
 }
+
+if (invincible) {
+    invincibility_timer -= 1;
+
+    if (invincibility_timer <= 0) {
+        invincible = false;
+    }
+}

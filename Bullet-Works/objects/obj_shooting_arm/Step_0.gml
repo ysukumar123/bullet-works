@@ -27,7 +27,6 @@ if (keyboard_check_pressed(ord("X"))) {
     instance_destroy();
 }
 
-// Shooting Bullets Toward the Cursor
 if (mouse_check_button_pressed(mb_left)) {
     var bullet_offset = 16;
     var spawn_x = x + lengthdir_x(bullet_offset, image_angle);
@@ -36,10 +35,4 @@ if (mouse_check_button_pressed(mb_left)) {
     var bullet = instance_create_layer(spawn_x, spawn_y, layer, obj_bullet);
     bullet.direction = point_direction(spawn_x, spawn_y, mouse_x, mouse_y);
     bullet.speed = 10;
-}
-
-// Ensure Bullet Movement is in obj_bullet's Step Event
-if (object_index == obj_bullet) {
-    x += lengthdir_x(speed, direction);
-    y += lengthdir_y(speed, direction);
 }
