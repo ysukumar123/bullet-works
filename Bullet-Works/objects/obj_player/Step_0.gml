@@ -1,45 +1,59 @@
-// Horizontal movement
+// Horizontal input (locked during slow-mo jump)
 if (!slowmo_jump) {
     move_x = keyboard_check(vk_right) - keyboard_check(vk_left);
     move_x *= move_speed;
 }
 
 // Ground check
-var on_ground = place_meeting(x, y+1, obj_ground) || place_meeting(x, y+1, obj_elevator);
+var on_ground = place_meeting(x, y + 1, obj_ground) || place_meeting(x, y + 1, obj_elevator);
 
 if (on_ground) {
     move_y = 0;
-    
-    // Start controlled slow-mo jump
-    if (keyboard_check_pressed(vk_space) && !slowmo_jump) {
+
+    // Start slow-mo jump toward cursor
+    if (keyboard_check_pressed(vk_space)) {
         slowmo_jump = true;
         slowmo_timer = 0;
-        
-        // Gentle upward push (reduced power)
-        move_y = -slowmo_power;
-        
-        // Slow down horizontal movement during jump
-        move_x *= 0.7;
-        
+
+        // Direction to cursor
+        var dx = mouse_x - x;
+        var dy = mouse_y - y;
+        var dist = point_distance(x, y, mouse_x, mouse_y);
+
+        var dir_x = dx / dist;
+        var dir_y = dy / dist;
+
+        // Clamp to ensure upward jump
+        dir_y = clamp(dir_y, -1, -0.25);
+
+        // Re-normalize the direction
+        var len = sqrt(dir_x * dir_x + dir_y * dir_y);
+        dir_x /= len;
+        dir_y /= len;
+
+        // Apply directional velocity
+        move_x = dir_x * move_speed * 1.5;
+        move_y = dir_y * jump_speed;
+
         image_angle = 0;
     }
 } else {
-    // Apply gravity (super low during slow-mo)
+    // Gravity
     move_y += slowmo_jump ? slowmo_gravity : normal_gravity;
     move_y = min(move_y, 10);
 }
 
-// Slow-mo jump control
+// Slow-mo jump handling
 if (slowmo_jump) {
     slowmo_timer++;
-    
-    // Gradually reduce upward force as we reach apex
+
+    // Smooth vertical arc near apex
     if (slowmo_timer < jump_apex_time) {
         move_y = lerp(move_y, 0, 0.05);
     }
-    
-    // End slow-mo when duration ends or we land
-    if (slowmo_timer >= slowmo_duration || place_meeting(x, y+move_y, obj_ground)) {
+
+    // End slow-mo on timeout or landing
+    if (slowmo_timer >= slowmo_duration || place_meeting(x, y + move_y, obj_ground)) {
         slowmo_jump = false;
     }
 }
@@ -53,17 +67,17 @@ if (!slowmo_jump) {
     }
 }
 
-// Your original collision system remains unchanged below
+// --- Collision Handling ---
 move_and_collide(move_x, move_y, obj_ground);
 move_and_collide(move_x, move_y, obj_elevator);
 
-if (!place_meeting(x+move_x, y+2, obj_ground) && place_meeting(x+move_x, y+10, obj_ground)) {
+if (!place_meeting(x + move_x, y + 2, obj_ground) && place_meeting(x + move_x, y + 10, obj_ground)) {
     move_y = abs(move_x);
     move_x = 0;
 }
 
-if (place_meeting(x, y+2, obj_elevator)) {
-    var elevator = instance_place(x, y+2, obj_elevator);
+if (place_meeting(x, y + 2, obj_elevator)) {
+    var elevator = instance_place(x, y + 2, obj_elevator);
     if (elevator) move_y = elevator.vspeed;
 }
 
