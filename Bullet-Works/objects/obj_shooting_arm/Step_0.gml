@@ -27,6 +27,7 @@ if (keyboard_check_pressed(ord("X"))) {
     instance_destroy();
 }
 
+// Shooting
 if (mouse_check_button_pressed(mb_left)) {
     var bullet_offset = 16;
     var spawn_x = x + lengthdir_x(bullet_offset, image_angle);
@@ -35,4 +36,7 @@ if (mouse_check_button_pressed(mb_left)) {
     var bullet = instance_create_layer(spawn_x, spawn_y, layer, obj_bullet);
     bullet.direction = point_direction(spawn_x, spawn_y, mouse_x, mouse_y);
     bullet.speed = 10;
+
+    // Play shooting sound
+    audio_play_sound(snd_shot, 1, false);
 }
