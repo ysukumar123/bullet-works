@@ -7,6 +7,7 @@
     {"id":{"name":"spr_return1","path":"sprites/spr_return1/spr_return1.yy",},"order":12,},
     {"id":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},"order":1,},
     {"id":{"name":"obj_interacreturn","path":"objects/obj_interacreturn/obj_interacreturn.yy",},"order":3,},
+    {"id":{"name":"obj_kill_countmanager","path":"objects/obj_kill_countmanager/obj_kill_countmanager.yy",},"order":13,},
     {"id":{"name":"spr_door","path":"sprites/spr_door/spr_door.yy",},"order":8,},
     {"id":{"name":"obj_idle_arm","path":"objects/obj_idle_arm/obj_idle_arm.yy",},"order":2,},
     {"id":{"name":"spr_interac","path":"sprites/spr_interac/spr_interac.yy",},"order":7,},

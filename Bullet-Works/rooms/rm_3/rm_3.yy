@@ -18,6 +18,7 @@
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances_2","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1D8264FB","properties":[],"isDnd":false,"objectId":{"name":"obj_door12","path":"objects/obj_door12/obj_door12.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1696.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_279A2F06","properties":[],"isDnd":false,"objectId":{"name":"obj_heart_manager","path":"objects/obj_heart_manager/obj_heart_manager.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1472.0,"y":416.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
         {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_481428B6","spriteId":{"name":"spr_door","path":"sprites/spr_door/spr_door.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1728.0,"y":608.0,},
@@ -48,6 +49,7 @@
     {"name":"inst_2364C3F7","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_2D63A9A4","path":"rooms/rm_3/rm_3.yy",},
     {"name":"inst_1D8264FB","path":"rooms/rm_3/rm_3.yy",},
+    {"name":"inst_279A2F06","path":"rooms/rm_3/rm_3.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
