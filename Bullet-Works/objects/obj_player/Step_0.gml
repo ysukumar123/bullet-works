@@ -58,7 +58,7 @@ if (slowmo_jump) {
     }
 }
 
-// Visual handling
+// Visuals
 if (!slowmo_jump) {
     image_angle = 0;
     if (move_x != 0) {
@@ -67,19 +67,38 @@ if (!slowmo_jump) {
     }
 }
 
-// --- Collision Handling ---
-move_and_collide(move_x, move_y, obj_ground);
-move_and_collide(move_x, move_y, obj_elevator);
+// === SOLID COLLISION ===
 
-if (!place_meeting(x + move_x, y + 2, obj_ground) && place_meeting(x + move_x, y + 10, obj_ground)) {
-    move_y = abs(move_x);
-    move_x = 0;
+// Horizontal movement + collision
+if (move_x != 0) {
+    var sign_x = sign(move_x);
+    for (var i = 0; i < abs(move_x); i++) {
+        if (!place_meeting(x + sign_x, y, obj_ground) && !place_meeting(x + sign_x, y, obj_elevator)) {
+            x += sign_x;
+        } else {
+            move_x = 0;
+            break;
+        }
+    }
 }
 
-if (place_meeting(x, y + 2, obj_elevator)) {
-    var elevator = instance_place(x, y + 2, obj_elevator);
-    if (elevator) move_y = elevator.vspeed;
+// Vertical movement + collision
+if (move_y != 0) {
+    var sign_y = sign(move_y);
+    for (var i = 0; i < abs(move_y); i++) {
+        if (!place_meeting(x, y + sign_y, obj_ground) && !place_meeting(x, y + sign_y, obj_elevator)) {
+            y += sign_y;
+        } else {
+            move_y = 0;
+            break;
+        }
+    }
 }
 
-move_and_collide(move_x, move_y, obj_ground, 4, 0, 0, move_speed, -1);
-move_and_collide(move_x, move_y, obj_elevator, 4, 0, 0, move_speed, -1);
+// Elevator riding support
+if (place_meeting(x, y + 1, obj_elevator)) {
+    var elevator = instance_place(x, y + 1, obj_elevator);
+    if (elevator) {
+        y += elevator.vspeed; // match elevator speed
+    }
+}

@@ -1,5 +1,5 @@
 move_speed = 4;
-jump_speed = 12; // Reduced from 16
+jump_speed = 20; // Increased from 12 → higher jump
 
 move_x = 0;
 move_y = 0;
