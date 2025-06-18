@@ -21,3 +21,9 @@ invincibility_timer = 0;
 // Save starting position
 start_x = x;
 start_y = y;
+// Boost variables
+boost_active = false;
+boost_timer = 0;
+boost_duration = 10 * room_speed; // 10 seconds
+original_move_speed = move_speed;
+original_jump_speed = jump_speed;

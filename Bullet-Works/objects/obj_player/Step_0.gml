@@ -131,3 +131,36 @@ if (invincible) {
         invincible = false;
     }
 }
+
+
+// === BOOST POWER-UP COLLISION ===
+if (!boost_active) {
+    var boost = instance_place(x, y, obj_boost);
+    if (boost != noone) {
+        // Activate boost
+        boost_active = true;
+        boost_timer = boost_duration;
+
+        // Play sound and destroy the power-up
+        audio_play_sound(snd_boost, 1, false);
+        with (boost) instance_destroy();
+
+        // Apply boost effect
+        move_speed *= 1.5; // 50% faster
+        jump_speed *= 1.4; // 40% higher
+    }
+}
+
+// === BOOST TIMER HANDLING ===
+if (boost_active) {
+    boost_timer--;
+    if (boost_timer <= 0) {
+        // Reset stats
+        boost_active = false;
+        move_speed = original_move_speed;
+        jump_speed = original_jump_speed;
+
+        // Stop sound (optional - if the sound is long and looping)
+        audio_stop_sound(snd_boost);
+    }
+}
