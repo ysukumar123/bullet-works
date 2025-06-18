@@ -1,10 +1,10 @@
-// Arm Positioning Based on Player
+// === FOLLOW PLAYER ===
 var px = obj_player.x;
 var py = obj_player.y;
 var flip = obj_player.facing_left;
 
 var offset_x = 20;
-var offset_y = 40;
+var offset_y = 2;
 
 if (!flip) {
     x = px - offset_x;
@@ -18,7 +18,7 @@ if (!flip) {
     image_angle = point_direction(x, y, mouse_x, mouse_y);
 }
 
-// Switching Arms When Pressing X
+// === SWITCH TO IDLE ARM ===
 if (keyboard_check_pressed(ord("X"))) {
     var new_arm = instance_create_layer(x, y, layer, obj_idle_arm);
     if (object_exists(obj_player)) {
@@ -27,7 +27,7 @@ if (keyboard_check_pressed(ord("X"))) {
     instance_destroy();
 }
 
-// Shooting
+// === SHOOTING ===
 if (mouse_check_button_pressed(mb_left)) {
     var bullet_offset = 16;
     var spawn_x = x + lengthdir_x(bullet_offset, image_angle);

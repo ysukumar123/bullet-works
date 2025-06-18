@@ -1,7 +1,7 @@
 // === INPUT ===
 if (!slowmo_jump) {
-    move_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-    move_x *= move_speed;
+    var input_dir = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+    move_x = input_dir * move_speed;
 }
 
 // === GROUND CHECK ===
@@ -57,25 +57,49 @@ if (slowmo_jump) {
     }
 }
 
-// === VISUALS ===
-if (!slowmo_jump) {
+// === VISUALS & FLIPPING ===
+// Flip sprite only based on input direction, independent of collision
+if (move_x != 0) {
+    facing_left = (move_x < 0);
+    image_xscale = facing_left ? -1 : 1;
     image_angle = 0;
-    if (move_x != 0) {
-        image_xscale = sign(move_x);
-        facing_left = (move_x < 0);
-    }
 }
 
-// === HORIZONTAL COLLISION ===
+// === HORIZONTAL COLLISION with unstick & allow moving away from wall ===
 if (move_x != 0) {
-    var sign_x = sign(move_x);
+    var h_dir = sign(move_x);
+
+    // Try to move step by step horizontally
     for (var i = 0; i < abs(move_x); i++) {
-        if (!place_meeting(x + sign_x, y, obj_ground) && !place_meeting(x + sign_x, y, obj_elevator)) {
-            x += sign_x;
+        if (
+            !place_meeting(x + h_dir, y, obj_ground) &&
+            !place_meeting(x + h_dir, y, obj_wall) &&
+            !place_meeting(x + h_dir, y, obj_elevator)
+        ) {
+            x += h_dir;  // Move if no collision
         } else {
+            // Blocked in move direction, stop horizontal movement
             move_x = 0;
             break;
         }
+    }
+}
+
+// === HANDLE "STUCK ON WALL" by nudging player away if no movement input but still inside wall ===
+if (move_x == 0) {
+    if (
+        place_meeting(x + 1, y, obj_wall) &&
+        !place_meeting(x - 1, y, obj_wall)
+    ) {
+        // Player stuck on left side of wall, nudge left
+        x -= 1;
+    }
+    else if (
+        place_meeting(x - 1, y, obj_wall) &&
+        !place_meeting(x + 1, y, obj_wall)
+    ) {
+        // Player stuck on right side of wall, nudge right
+        x += 1;
     }
 }
 
@@ -96,13 +120,13 @@ if (move_y != 0) {
 if (place_meeting(x, y + 1, obj_elevator)) {
     var elevator = instance_place(x, y + 1, obj_elevator);
     if (elevator != noone) {
-        y += elevator.vspeed; // This works with path movement now
+        y += elevator.vspeed; // Sync with elevator movement
     }
 }
 
+// === INVINCIBILITY TIMER ===
 if (invincible) {
     invincibility_timer -= 1;
-
     if (invincibility_timer <= 0) {
         invincible = false;
     }

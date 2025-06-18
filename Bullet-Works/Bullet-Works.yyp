@@ -16,6 +16,7 @@
     {"id":{"name":"snd_kill","path":"sounds/snd_kill/snd_kill.yy",},"order":1,},
     {"id":{"name":"obj_door","path":"objects/obj_door/obj_door.yy",},"order":10,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
+    {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"order":16,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_return2","path":"sprites/spr_return2/spr_return2.yy",},"order":13,},
     {"id":{"name":"obj_roomtutorialinterac","path":"objects/obj_roomtutorialinterac/obj_roomtutorialinterac.yy",},"order":2,},
