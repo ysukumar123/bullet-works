@@ -8,3 +8,11 @@ with (other) {
 
 // Destroy the enemy
 instance_destroy();
+ // Increase the player's kill count
+if (instance_exists(obj_player)) {
+    obj_player.kill_count += 1;
+}
+
+// Destroy both bullet and enemy
+with (other) instance_destroy(); // destroy bullet
+instance_destroy();              // destroy self (enemy)

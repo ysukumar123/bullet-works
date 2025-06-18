@@ -1,4 +1,4 @@
 if(lives <= 0)
 {
-	room_goto(rm_menu);
+	room_goto(Room7);
 }

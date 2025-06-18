@@ -27,3 +27,4 @@ boost_timer = 0;
 boost_duration = 10 * room_speed; // 10 seconds
 original_move_speed = move_speed;
 original_jump_speed = jump_speed;
+kill_count = 0;
