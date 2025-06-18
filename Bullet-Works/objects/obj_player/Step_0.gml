@@ -1,6 +1,6 @@
 // === INPUT ===
 if (!slowmo_jump) {
-    move_x = keyboard_check(vk_right) - keyboard_check(vk_left);
+    move_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
     move_x *= move_speed;
 }
 

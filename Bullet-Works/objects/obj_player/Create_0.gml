@@ -1,5 +1,5 @@
 move_speed = 4;
-jump_speed = 20; // Increased from 12 → higher jump
+jump_speed = 20;
 
 move_x = 0;
 move_y = 0;
@@ -8,14 +8,16 @@ facing_left = false;
 // Slow-mo jump variables
 slowmo_jump = false;
 slowmo_timer = 0;
-slowmo_duration = 90; // Increased duration for more slow-mo
-slowmo_power = 12;    // Reduced from 20 for lower jump
-slowmo_gravity = 0.2; // Very low gravity during jump
-normal_gravity = 0.6; // Regular gravity
-jump_apex_time = 30;  // Time to reach jump peak
+slowmo_duration = 90;
+slowmo_power = 12;
+slowmo_gravity = 0.2;
+normal_gravity = 0.6;
+jump_apex_time = 30;
 
 invincible = false;
-invincibility_duration = 60; // Example: 60 steps = 1 second
+invincibility_duration = 60;
 invincibility_timer = 0;
- start_x = x;
+
+// Save starting position
+start_x = x;
 start_y = y;
