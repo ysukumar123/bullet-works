@@ -91,14 +91,14 @@ if (move_x == 0) {
         place_meeting(x + 1, y, obj_wall) &&
         !place_meeting(x - 1, y, obj_wall)
     ) {
-        // Player stuck on left side of wall, nudge left
+        // Stuck on left side of wall, nudge left
         x -= 1;
     }
     else if (
         place_meeting(x - 1, y, obj_wall) &&
         !place_meeting(x + 1, y, obj_wall)
     ) {
-        // Player stuck on right side of wall, nudge right
+        // Stuck on right side of wall, nudge right
         x += 1;
     }
 }

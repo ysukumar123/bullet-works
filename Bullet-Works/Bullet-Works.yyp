@@ -3,6 +3,7 @@
   "resourceVersion": "1.6",
   "name": "Bullet-Works",
   "resources": [
+    {"id":{"name":"spr_spikes","path":"sprites/spr_spikes/spr_spikes.yy",},"order":16,},
     {"id":{"name":"obj_bullet","path":"objects/obj_bullet/obj_bullet.yy",},"order":5,},
     {"id":{"name":"spr_return1","path":"sprites/spr_return1/spr_return1.yy",},"order":12,},
     {"id":{"name":"obj_ground","path":"objects/obj_ground/obj_ground.yy",},"order":1,},
@@ -46,6 +47,7 @@
     {"id":{"name":"obj_enemy","path":"objects/obj_enemy/obj_enemy.yy",},"order":4,},
     {"id":{"name":"spr_exit","path":"sprites/spr_exit/spr_exit.yy",},"order":12,},
     {"id":{"name":"spr_collolo","path":"sprites/spr_collolo/spr_collolo.yy",},"order":15,},
+    {"id":{"name":"obj_spikes","path":"objects/obj_spikes/obj_spikes.yy",},"order":17,},
     {"id":{"name":"spr_interac2","path":"sprites/spr_interac2/spr_interac2.yy",},"order":8,},
     {"id":{"name":"obj_interac","path":"objects/obj_interac/obj_interac.yy",},"order":1,},
     {"id":{"name":"path_elevator","path":"paths/path_elevator/path_elevator.yy",},"order":0,},
